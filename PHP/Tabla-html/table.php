@@ -1,37 +1,61 @@
 <?php
-    $styles = "<style>
-    table, th, td {
-      border: 1px solid black;
-    }
-    </style>";
+    $styles = '<link rel="stylesheet" type="text/css" href="styles.css">';
 
-    $rows = array("Toni", "Laura", "Pere", null);
+    $rows = array(
+        "",
+        null,
+        array(),
+        array(1, 2, 3),
+        false,
+        true,
+        1,
+        42,
+        0,
+        -1,
+        "1",
+        "0",
+        "1",
+        "php",
+        "true",
+        "false"
+    );
+
     $columns = "<tr>
-                    <th>Nombre</th>
+                    <th>Valor</th>
+                    <th>gettype()</th>
                     <th>empty()</th>
+                    <th>is_null()</th>
                     <th>isset()</th>
-                    <th>boolval()</th>
+                    <th>bool</th>
                 </tr>";
+
     $table = "<table>".$columns;
     
     foreach($rows as $name) {
-        $col2 = empty($name);
-        $col3 = isset($name);
-        $col4 = boolval($name);
+        $col2 = gettype($name);
+        if($col2 == "array") {
+            $col1 = 'array('.implode(", ", $name).')';
+        }else {
+            $col1 = json_encode($name);
+        }
+        $col3 = json_encode(empty($name));
+        $col4 = json_encode(is_null($name));
+        $col5 = json_encode(isset($name));
 
-        if ($name == null) {
-            $name = "null";
-            $col2 = empty(null);
-            $col3 = 0;
-            $col4 = boolval(null);
+        if ($name) {
+            $col6 = json_encode(true);
+        }else {
+            $col6 = json_encode(false);
         }
 
-        $row = "<tr>
-                    <th>$name</th>
-                    <th>".$col2."</th>
-                    <th>".$col3."</th>
-                    <th>".$col4."</th>
-                </tr>";
+        $row = '<tr>
+                    <th>$x = '.$col1.'</th>
+                    <th>'.$col2.'</th>
+                    <th>'.$col3.'</th>
+                    <th>'.$col4.'</th>
+                    <th>'.$col5.'</th>
+                    <th>'.$col6.'</th>
+                </tr>';
         $table = $table.$row;
     }
     $table = $table."</table>";
