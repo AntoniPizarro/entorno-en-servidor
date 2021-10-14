@@ -1,6 +1,7 @@
 <?php
     $styles = '<link rel="stylesheet" type="text/css" href="styles.css">';
 
+    // Declaración los datos por cada fila
     $rows = array(
         "",
         null,
@@ -20,6 +21,7 @@
         "false"
     );
 
+    // Declaración de cabeceras
     $columns = "<tr>
                     <th>Valor</th>
                     <th>gettype()</th>
@@ -31,6 +33,7 @@
 
     $table = "<table>".$columns;
     
+    // Cálculo por cada dato por columna
     foreach($rows as $name) {
         $col2 = gettype($name);
         if($col2 == "array") {
@@ -47,7 +50,8 @@
         }else {
             $col6 = json_encode(false);
         }
-
+        
+        // Inserción de datos en tabla
         $row = '<tr>
                     <th>$x = '.$col1.'</th>
                     <th>'.$col2.'</th>
