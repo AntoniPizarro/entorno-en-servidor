@@ -1,0 +1,4 @@
+ssh apizarro@g1.ifc33x.cifpfbmoll.eu
+12345678
+
+/var/www/ifc33x/apizarro
