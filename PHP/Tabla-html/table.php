@@ -1,7 +1,11 @@
 <?php
     $styles = '<link rel="stylesheet" type="text/css" href="styles.css">';
 
+<<<<<<< HEAD
     $var = 1234;
+=======
+    // Declaración los datos por cada fila
+>>>>>>> c086f8b8e1789e78690a3d464a7fd20f86b05653
     $rows = array(
         "",
         null,
@@ -22,6 +26,7 @@
         "false"
     );
 
+<<<<<<< HEAD
     $columns = '<tr class="headers">
     <th>Valor</th>
     <th>gettype()</th>
@@ -34,6 +39,22 @@
     $table = "<table>".$columns;
     
     foreach ($rows as $name) {
+=======
+    // Declaración de cabeceras
+    $columns = "<tr>
+                    <th>Valor</th>
+                    <th>gettype()</th>
+                    <th>empty()</th>
+                    <th>is_null()</th>
+                    <th>isset()</th>
+                    <th>bool</th>
+                </tr>";
+
+    $table = "<table>".$columns;
+    
+    // Cálculo por cada dato por columna
+    foreach($rows as $name) {
+>>>>>>> c086f8b8e1789e78690a3d464a7fd20f86b05653
         $col2 = gettype($name);
         if ($col2 == "array") {
             $col1 = 'array('.implode(", ", $name).')';
@@ -49,6 +70,7 @@
         }else {
             $col6 = json_encode(false);
         }
+<<<<<<< HEAD
 
         if ($col3 == 'true') {
             $sty3 = 'style="background-color: greenyellow;"';
@@ -82,6 +104,18 @@
     <th $sty5>$col5</th>
     <th $sty6>$col6</th>
 </tr>";
+=======
+        
+        // Inserción de datos en tabla
+        $row = '<tr>
+                    <th>$x = '.$col1.'</th>
+                    <th>'.$col2.'</th>
+                    <th>'.$col3.'</th>
+                    <th>'.$col4.'</th>
+                    <th>'.$col5.'</th>
+                    <th>'.$col6.'</th>
+                </tr>';
+>>>>>>> c086f8b8e1789e78690a3d464a7fd20f86b05653
         $table = $table.$row;
     }
     $table = $table."</table>";
